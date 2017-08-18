@@ -163,11 +163,11 @@ function resizeImageBase64 (successCallback, errorCallback, file, targetWidth, t
 
 function takePictureFromFile (successCallback, errorCallback, args) {
     // Detect Windows Phone
-    if (navigator.appVersion.indexOf('Windows Phone 8.1') >= 0) {
-        takePictureFromFileWP(successCallback, errorCallback, args);
-    } else {
-        takePictureFromFileWindows(successCallback, errorCallback, args);
-    }
+    // if (navigator.appVersion.indexOf('Windows Phone 8.1') >= 0) {
+    takePictureFromFileWP(successCallback, errorCallback, args);
+    // } else {
+    //    takePictureFromFileWindows(successCallback, errorCallback, args);
+    // }
 }
 
 function takePictureFromFileWP (successCallback, errorCallback, args) {
