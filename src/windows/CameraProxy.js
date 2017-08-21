@@ -317,7 +317,7 @@ function takePictureFromCameraWP (successCallback, errorCallback, args) {
 
     function createCameraUI () {
         // create style for take and cancel buttons
-        var buttonStyle = 'width:45%;padding: 10px 16px;font-size: 18px;line-height: 1.3333333;color: #333;background-color: #fff;border-color: #ccc; border: 1px solid transparent;border-radius: 6px; display: block; margin: 20px; z-index: 1000;border-color: #adadad;';
+        var buttonStyle = "width:45%;padding: 10px 16px;border: 2px;font-size: 18px;font-weight: bold;line-height: 1.3333333;color: #333;background-color: #fff;border-color: #ccc; border: 1px solid transparent;border-radius: 6px; display: block; margin: 20px; z-index: 1000;border-color: #adadad;";
 
         // Create fullscreen preview
         // z-order style element for capturePreview and cameraCancelButton elts
@@ -654,23 +654,23 @@ function takePictureFromCameraWP (successCallback, errorCallback, args) {
         // https://msdn.microsoft.com/en-us/library/windows/apps/windows.graphics.imaging.bitmaprotation.aspx
 
         switch (orientation) {
-        // portrait
-        case Windows.Devices.Sensors.SimpleOrientation.notRotated:
-            return Windows.Media.Capture.VideoRotation.clockwise90Degrees;
-        // landscape
-        case Windows.Devices.Sensors.SimpleOrientation.rotated90DegreesCounterclockwise:
-            return Windows.Media.Capture.VideoRotation.none;
-        // portrait-flipped (not supported by WinPhone Apps)
-        case Windows.Devices.Sensors.SimpleOrientation.rotated180DegreesCounterclockwise:
-            // Falling back to portrait default
-            return Windows.Media.Capture.VideoRotation.clockwise90Degrees;
-        // landscape-flipped
-        case Windows.Devices.Sensors.SimpleOrientation.rotated270DegreesCounterclockwise:
-            return Windows.Media.Capture.VideoRotation.clockwise180Degrees;
-        // faceup & facedown
-        default:
-            // Falling back to portrait default
-            return Windows.Media.Capture.VideoRotation.clockwise90Degrees;
+            // portrait
+            case Windows.Devices.Sensors.SimpleOrientation.notRotated:
+                return Windows.Media.Capture.VideoRotation.none;
+            // landscape
+            case Windows.Devices.Sensors.SimpleOrientation.rotated90DegreesCounterclockwise:
+                return Windows.Media.Capture.VideoRotation.clockwise270Degrees;
+            // portrait-flipped (not supported by WinPhone Apps)
+            case Windows.Devices.Sensors.SimpleOrientation.rotated180DegreesCounterclockwise:
+                // Falling back to portrait default
+                return Windows.Media.Capture.VideoRotation.clockwise180Degrees;
+            // landscape-flipped
+            case Windows.Devices.Sensors.SimpleOrientation.rotated270DegreesCounterclockwise:
+                return Windows.Media.Capture.VideoRotation.clockwise90Degrees;
+            // faceup & facedown
+            default:
+                // Falling back to portrait default
+                return Windows.Media.Capture.VideoRotation.none;
         }
     }
 
